@@ -1,5 +1,10 @@
+import Layout from "./components/Layout";
 function App() {
-  return <div className="bg-red-500">Hello World</div>;
+  return (
+    <>
+      <Layout />
+    </>
+  );
 }
 
 export default App;
