@@ -28,23 +28,14 @@ const HeroHeader = () => {
   return (
     <div className="h-dvh w-full overflow-hidden">
       <Slider {...settings}>
-        <div>
-          <h3>1</h3>
+        <div className="c-first-hero">
+          <div></div>
         </div>
-        <div>
+        <div className="c-second-hero">
           <h3>2</h3>
         </div>
-        <div>
+        <div className="c-third-hero">
           <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
         </div>
       </Slider>
     </div>
