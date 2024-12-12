@@ -12,8 +12,8 @@ const Calender = () => {
   );
 
   return (
-    <div className="h-full overflow-hidden">
-      <Calendar value={value} onChange={onChange} useDarkMode size={250} />
+    <div className="h-full overflow-hidden w-auto">
+      <Calendar value={value} onChange={onChange} useDarkMode />
     </div>
   );
 };
