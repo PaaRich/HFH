@@ -18,7 +18,7 @@ const SideBar = () => {
         </div>
 
         <div className="flex flex-col items-center w-full mx-auto py-2">
-          <NavLink to="lhims" className=" p-2 rounded-md my-1">
+          <NavLink to="lhims" className="c-navlink p-2 rounded-md my-1">
             <BsFillClipboardDataFill size={25} id="right" />
             <Tooltip
               anchorId="right"
@@ -28,7 +28,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink to="cps" className="p-2 rounded-md my-1">
+          <NavLink to="cps" className="c-navlink p-2 rounded-md my-1">
             <TiShoppingCart size={25} id="right2" />
             <Tooltip
               anchorId="right2"
@@ -38,7 +38,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink to="x-ray" className="p-2 rounded-md my-1">
+          <NavLink to="x-ray" className="c-navlink p-2 rounded-md my-1">
             <FaRadiation size={25} id="right3" />
             <Tooltip
               anchorId="right3"
@@ -48,7 +48,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink to="claimit" className="p-2 rounded-md my-1">
+          <NavLink to="claimit" className="c-navlink p-2 rounded-md my-1">
             <BsDatabase size={25} id="right4" />
             <Tooltip
               anchorId="right4"

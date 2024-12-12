@@ -26,7 +26,7 @@ const HeroHeader = () => {
     autoplay: true,
   };
   return (
-    <div>
+    <div className="h-dvh w-full overflow-hidden">
       <Slider {...settings}>
         <div>
           <h3>1</h3>

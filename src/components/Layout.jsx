@@ -2,6 +2,7 @@ import SideBar from "./SideBar";
 //import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
 
+
 const Layout = () => {
   return (
     <main className="h-dvh">
@@ -11,20 +12,12 @@ const Layout = () => {
           <SideBar />
         </div>
 
-        {/* main */}
-        <div className="md:w-full border-l-2">
-          <div className="md:flex flex-col ">
-            {/* navbar */}
-            {/* <div>
-              <Navbar />
-            </div> */}
-
-            {/* outlet */}
-            <div>
+       {/* outlet */}
+            <div className="border-l-2 md:w-[95%]">
               <Outlet />
             </div>
-          </div>
-        </div>
+         
+     
       </div>
     </main>
   );
