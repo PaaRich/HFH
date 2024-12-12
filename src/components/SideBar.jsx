@@ -17,7 +17,7 @@ const SideBar = () => {
           </Link>
         </div>
 
-        <div className="flex flex-col items-center w-full mx-auto py-2">
+        <div className="flex flex-col items-center w-full mx-auto py-2 text-blue-500">
           <NavLink to="lhims" className="c-navlink p-2 rounded-md my-1">
             <BsFillClipboardDataFill size={25} id="right" />
             <Tooltip
