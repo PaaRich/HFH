@@ -1,23 +1,28 @@
 import SideBar from "./SideBar";
-import Calender from "./Calender";
-import HeroHeader from "./HeroHeader";
+//import Navbar from "./Navbar";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <main>
-      <div className="c-hero-container lg:flex h-dvh">
+    <main className="h-dvh">
+      <div className="md:flex">
         {/* sidebar */}
-        <div className="c-sidebar lg:basis-1/12">
+        <div className="c-sidebar md:w-[5%]">
           <SideBar />
         </div>
 
-        {/* homePage */}
-        <div className="c-homepage-container lg:basis-11/12 lg:flex">
-          <div className="c-hero lg:basis-4/5">
-            <HeroHeader />
-          </div>
-          <div className="c-calender lg:basis-1/5">
-            <Calender />
+        {/* main */}
+        <div className="md:w-full border-l-2">
+          <div className="md:flex flex-col ">
+            {/* navbar */}
+            {/* <div>
+              <Navbar />
+            </div> */}
+
+            {/* outlet */}
+            <div>
+              <Outlet />
+            </div>
           </div>
         </div>
       </div>
