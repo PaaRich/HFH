@@ -1,15 +1,15 @@
 import HeroHeader from "../components/HeroHeader";
-import Calender from "../components/Calender";
+//import Calender from "../components/Calender";
 
 const HomePage = () => {
   return (
-    <div className="md:flex">
-      <div className="md:w-4/5">
+    <div>
+      <div className="md:w-full">
         <HeroHeader />
       </div>
-      <div className="md:w-1/5">
+      {/* <div className="absolute top-0 right-0">
         <Calender />
-      </div>
+      </div> */}
     </div>
   );
 };

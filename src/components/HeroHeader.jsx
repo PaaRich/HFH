@@ -3,11 +3,17 @@ import { FaRadiation } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 import { SiLibreofficewriter } from "react-icons/si";
 import { Link } from "react-router-dom";
+import Logo from "../assets/WHO_logo-removebg-preview.png";
 
 const HeroHeader = () => {
   return (
     <div className="h-dvh w-full overflow-hidden">
-      <div className="c-first-hero flex justify-center items-center h-full">
+      <div className="c-first-hero flex flex-col justify-center items-center h-full">
+        <div className="flex items-center mb-10">
+          <img src={Logo} alt="alt" className="w-[100px]" />
+          <h1 className="text-4xl text-white">Holy Family Hospital</h1>
+        </div>
+
         <div className="w-[50%] h-fit flex items-center justify-evenly">
           <Link
             to="lhims"
