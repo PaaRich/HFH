@@ -18,7 +18,7 @@ const Layout = () => {
     const handleTimeOutHide = () => {
       setTimeout(() => {
         setIsOpen(false);
-      }, 10000);
+      }, 1000);
     };
 
     document.addEventListener("mousedown", handleTimeOutHide);
