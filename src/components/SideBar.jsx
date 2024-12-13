@@ -10,7 +10,7 @@ const SideBar = () => {
   return (
     <div className="md:flex flex-col justify-between items-center h-dvh">
       <div>
-        <div className="border-b-[1px] py-1">
+        <div className="border-b-[1px] border-[#555] py-3">
           <Link to="/">
             <img src={Logo} alt="logo" />
           </Link>
