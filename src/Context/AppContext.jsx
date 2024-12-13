@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const AppContext = ({ children }) => {
-  const [open, setIsOpen] = useState(true);
+  const [open, setIsOpen] = useState(false);
   return (
     <Context.Provider value={{ open, setIsOpen }}>{children}</Context.Provider>
   );
