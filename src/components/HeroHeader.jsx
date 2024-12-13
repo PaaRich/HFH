@@ -1,45 +1,43 @@
-//import Slider from "react-slick";
-const HeroHeader = () => {
-  // return (
-  //   <div className="video-background">
-  //     <video autoPlay muted loop className="background-video">
-  //       <source
-  //         src="../../public/the-drive-on-the-road-at-sunset.960x540.mp4"
-  //         type="video/mp4"
-  //       />
-  //       Your browser does not support the video tag.
-  //     </video>
-  //     <div className="content">
-  //       <h1>Welcome to My Website</h1>
-  //       <p>This is a sample text over a video background.</p>
-  //     </div>
-  //   </div>
+import { LuBookMarked } from "react-icons/lu";
+import { FaRadiation } from "react-icons/fa6";
+import { TiShoppingCart } from "react-icons/ti";
+import { SiLibreofficewriter } from "react-icons/si";
+import { Link } from "react-router-dom";
 
-  // );
-  // var settings = {
-  //   dots: false,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   arrows: false,
-  //   autoplay: true,
-  // };
+const HeroHeader = () => {
   return (
     <div className="h-dvh w-full overflow-hidden">
-      {/* <Slider {...settings}>
-        <div className="c-first-hero">
-          <div></div>
+      <div className="c-first-hero flex justify-center items-center h-full">
+        <div className="w-[50%] h-fit flex items-center justify-evenly">
+          <Link
+            to="lhims"
+            className="flex flex-col items-center cursor-pointer hover:bg-[#0a0c0ca5] p-2 rounded-md duration-200"
+          >
+            <SiLibreofficewriter size={30} className="mb-2" color="#3abdea" />
+            <span className="text-white  text-xl tracking-widest">LHIMS</span>
+          </Link>
+          <Link
+            to="cps"
+            className="flex flex-col items-center cursor-pointer hover:bg-[#0a0c0ca5] py-2 px-4 rounded-md duration-200"
+          >
+            <TiShoppingCart size={30} className="mb-2" color="#3abdea" />
+            <span className="text-white  text-xl tracking-widest">CPS</span>
+          </Link>
+          <Link
+            to="claim-it"
+            className="flex flex-col items-center cursor-pointer hover:bg-[#0a0c0ca5] p-2 rounded-md duration-200"
+          >
+            <LuBookMarked size={30} className="mb-2" color="#3abdea" />
+            <span className="text-white text-xl tracking-widest">CLAIM-IT</span>
+          </Link>
+          <Link
+            to="x-ray"
+            className="flex flex-col items-center cursor-pointer hover:bg-[#0a0c0ca5] p-2 rounded-md duration-200"
+          >
+            <FaRadiation size={30} className="mb-2" color="#3abdea" />
+            <span className="text-white text-xl tracking-widest">X-RAY</span>
+          </Link>
         </div>
-        <div className="c-second-hero">
-          <h3>2</h3>
-        </div>
-        <div className="c-third-hero">
-          <h3>3</h3>
-        </div>
-      </Slider> */}
-      <div className="c-first-hero">
-        <div>Home</div>
       </div>
     </div>
   );

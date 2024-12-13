@@ -17,7 +17,7 @@ const SideBar = () => {
         </div>
 
         <div className="flex flex-col items-center w-full mx-auto py-2 text-blue-500">
-          <NavLink to="lhims" className="c-navlink p-2 rounded-md my-1">
+          <NavLink to="notification" className="c-navlink p-2 rounded-md my-1">
             <IoNotifications size={25} id="right" />
             <Tooltip
               anchorId="right"
@@ -27,7 +27,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink to="cps" className="c-navlink p-2 rounded-md my-1">
+          <NavLink to="meeting" className="c-navlink p-2 rounded-md my-1">
             <HiUserGroup size={25} id="right2" />
             <Tooltip
               anchorId="right2"
@@ -37,7 +37,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink to="x-ray" className="c-navlink p-2 rounded-md my-1">
+          <NavLink to="calendar" className="c-navlink p-2 rounded-md my-1">
             <FaCalendarAlt size={25} id="right3" />
             <Tooltip
               anchorId="right3"
