@@ -30,15 +30,15 @@ const Layout = () => {
         <div
           className={`c-sidebar md:w-[5%] ${
             open ? "left-0" : "-left-[5%]"
-          } duration-150 border-r-[1px] fixed z-50 top-0`}
+          } duration-150  fixed z-50 top-0 bg-[#000000f1]`}
         >
           <SideBar />
           <span
             className={`${
               open
-                ? "hover:scale-110 duration-150"
-                : "hover:scale-110 hover:translate-x-1 duration-200"
-            } absolute -right-6 top-1/2 cursor-pointer `}
+                ? "hover:-translate-x-1 duration-150"
+                : "hover:translate-x-1 duration-200"
+            } absolute -right-5 top-1/2 cursor-pointer bg-black rounded-e-full`}
             onClick={() => setIsOpen(!open)}
           >
             <AiOutlineCaretRight size={30} color="#3abdea" />
@@ -49,7 +49,7 @@ const Layout = () => {
         <div
           className={`${
             open ? "md:w-[95%]" : "md:w-full"
-          } duration-200 fixed right-0 top-0 z-10`}
+          } duration-150 fixed right-0 top-0 z-10`}
         >
           <Outlet />
         </div>
