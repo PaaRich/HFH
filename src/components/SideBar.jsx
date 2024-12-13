@@ -1,9 +1,8 @@
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/WHO_logo-removebg-preview.png";
-import { BsFillClipboardDataFill } from "react-icons/bs";
-import { TiShoppingCart } from "react-icons/ti";
-import { FaRadiation } from "react-icons/fa";
-import { BsDatabase } from "react-icons/bs";
+import { IoNotifications } from "react-icons/io5";
+import { HiUserGroup } from "react-icons/hi";
+import { FaCalendarAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import { Classic } from "@theme-toggles/react";
 
@@ -19,36 +18,36 @@ const SideBar = () => {
 
         <div className="flex flex-col items-center w-full mx-auto py-2 text-blue-500">
           <NavLink to="lhims" className="c-navlink p-2 rounded-md my-1">
-            <BsFillClipboardDataFill size={25} id="right" />
+            <IoNotifications size={25} id="right" />
             <Tooltip
               anchorId="right"
-              content="Lhims"
+              content="Notifications"
               place="right"
               variant="dark"
             />
           </NavLink>
 
           <NavLink to="cps" className="c-navlink p-2 rounded-md my-1">
-            <TiShoppingCart size={25} id="right2" />
+            <HiUserGroup size={25} id="right2" />
             <Tooltip
               anchorId="right2"
-              content="CPS"
+              content="Meeting"
               place="right"
               variant="dark"
             />
           </NavLink>
 
           <NavLink to="x-ray" className="c-navlink p-2 rounded-md my-1">
-            <FaRadiation size={25} id="right3" />
+            <FaCalendarAlt size={25} id="right3" />
             <Tooltip
               anchorId="right3"
-              content="X-ray"
+              content="Calendar"
               place="right"
               variant="dark"
             />
           </NavLink>
 
-          <NavLink to="claimit" className="c-navlink p-2 rounded-md my-1">
+          {/* <NavLink to="claimit" className="c-navlink p-2 rounded-md my-1">
             <BsDatabase size={25} id="right4" />
             <Tooltip
               anchorId="right4"
@@ -56,7 +55,7 @@ const SideBar = () => {
               place="right"
               variant="dark"
             />
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
       <Classic className="mb-2" />
