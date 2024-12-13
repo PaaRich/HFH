@@ -10,16 +10,16 @@ const Layout = () => {
   const SidebarRef = useRef(null);
 
   useEffect(() => {
-    // const handleOutsideClick = (event) => {
-    //   if (!SidebarRef.current.contains(event.target)) {
-    //     setIsOpen(false);
-    //   }
-    // };
-    const handleTimeOutHide = () => {
-      setTimeout(() => {
+    const handleOutsideClick = (event) => {
+      if (!SidebarRef.current.contains(event.target)) {
         setIsOpen(false);
-      }, 1000);
+      }
     };
+    // const handleTimeOutHide = () => {
+    //   setTimeout(() => {
+    //     setIsOpen(false);
+    //   }, 1000);
+    // };
 
     document.addEventListener("mousedown", handleTimeOutHide);
 
