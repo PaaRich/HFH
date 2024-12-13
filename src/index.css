@@ -9,7 +9,8 @@
 }
 
 .active {
-  background-color: rgba(0, 0, 0, 0.144);
+  /* background-color: rgba(0, 0, 0, 0.144); */
+  background-color: #55555580;
 }
 .c-first-hero {
   background: linear-gradient(rgba(0, 0, 0, 0.355), rgba(0, 0, 0, 0.355)),
