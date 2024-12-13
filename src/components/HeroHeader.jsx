@@ -1,4 +1,4 @@
-import Slider from "react-slick";
+//import Slider from "react-slick";
 const HeroHeader = () => {
   // return (
   //   <div className="video-background">
@@ -16,18 +16,18 @@ const HeroHeader = () => {
   //   </div>
 
   // );
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-  };
+  // var settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: false,
+  //   autoplay: true,
+  // };
   return (
     <div className="h-dvh w-full overflow-hidden">
-      <Slider {...settings}>
+      {/* <Slider {...settings}>
         <div className="c-first-hero">
           <div></div>
         </div>
@@ -37,7 +37,10 @@ const HeroHeader = () => {
         <div className="c-third-hero">
           <h3>3</h3>
         </div>
-      </Slider>
+      </Slider> */}
+      <div className="c-first-hero">
+        <div>Home</div>
+      </div>
     </div>
   );
 };
