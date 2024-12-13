@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/WHO_logo-removebg-preview.png";
-import { IoNotifications } from "react-icons/io5";
+import { IoNotifications, IoHomeSharp } from "react-icons/io5";
 import { HiUserGroup } from "react-icons/hi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
@@ -17,6 +17,16 @@ const SideBar = () => {
         </div>
 
         <div className="flex flex-col items-center w-full mx-auto py-2 text-blue-500">
+          <NavLink to="/" className="c-navlink p-2 rounded-md my-1">
+            <IoHomeSharp size={25} id="right" />
+            <Tooltip
+              anchorId="right"
+              content="Notifications"
+              place="right"
+              variant="dark"
+            />
+          </NavLink>
+
           <NavLink to="notification" className="c-navlink p-2 rounded-md my-1">
             <IoNotifications size={25} id="right" />
             <Tooltip
