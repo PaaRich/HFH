@@ -13,7 +13,7 @@ const Calender = () => {
 
   return (
     <div className="h-full overflow-hidden w-auto">
-      <Calendar value={value} onChange={onChange} useDarkMode />
+      <Calendar value={value} onChange={onChange} />
     </div>
   );
 };
