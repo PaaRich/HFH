@@ -30,14 +30,14 @@ const Layout = () => {
         <div
           className={`c-sidebar md:w-[5%] ${
             open ? "left-0" : "-left-[5%]"
-          } duration-150  fixed z-50 top-0 bg-[#000000f1]`}
+          } duration-300  fixed z-50 top-0 bg-[#000000f1]`}
         >
           <SideBar />
           <span
             className={`${
               open
-                ? "hover:-translate-x-1 duration-150"
-                : "hover:translate-x-1 duration-200"
+                ? "hover:-translate-x-1 duration-300"
+                : "hover:translate-x-1 duration-300"
             } absolute -right-5 top-1/2 cursor-pointer bg-black rounded-e-full`}
             onClick={() => setIsOpen(!open)}
           >
@@ -49,7 +49,7 @@ const Layout = () => {
         <div
           className={`${
             open ? "md:w-[95%]" : "md:w-full"
-          } duration-150 fixed right-0 top-0 z-10`}
+          } duration-300 fixed right-0 top-0 z-10`}
         >
           <Outlet />
         </div>
