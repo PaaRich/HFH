@@ -21,17 +21,7 @@ const SideBar = () => {
             <IoHomeSharp size={25} id="right" />
             <Tooltip
               anchorId="right"
-              content="Notifications"
-              place="right"
-              variant="dark"
-            />
-          </NavLink>
-
-          <NavLink to="notification" className="c-navlink p-2 rounded-md my-1">
-            <IoNotifications size={25} id="right" />
-            <Tooltip
-              anchorId="right"
-              content="Notifications"
+              content="Home"
               place="right"
               variant="dark"
             />
@@ -52,6 +42,16 @@ const SideBar = () => {
             <Tooltip
               anchorId="right3"
               content="Calendar"
+              place="right"
+              variant="dark"
+            />
+          </NavLink>
+
+          <NavLink to="notification" className="c-navlink p-2 rounded-md my-1">
+            <IoNotifications size={25} id="right1" />
+            <Tooltip
+              anchorId="right1"
+              content="Notifications"
               place="right"
               variant="dark"
             />
