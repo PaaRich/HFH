@@ -36,10 +36,8 @@ const Layout = () => {
           <SideBar />
           <span
             className={`${
-              open
-                ? "hover:-translate-x-1 duration-300"
-                : "hover:translate-x-1 duration-300"
-            } absolute -right-5 top-1/2 cursor-pointer bg-black rounded-e-full`}
+              open ? "hover:-translate-x-1" : "hover:translate-x-1"
+            } absolute -right-5 top-1/2 duration-300 cursor-pointer bg-black rounded-e-full`}
             onClick={() => setIsOpen(!open)}
           >
             <AiOutlineCaretRight size={30} color="#3abdea" />
