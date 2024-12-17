@@ -5,8 +5,12 @@ import { HiUserGroup } from "react-icons/hi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import { Classic } from "@theme-toggles/react";
+import { useContext } from "react";
+import { Context } from "../Context/Context";
 
 const SideBar = () => {
+  const { meeting, calendar, notification } = useContext(Context);
+
   return (
     <div className="md:flex flex-col justify-between items-center h-dvh">
       <div>
@@ -27,7 +31,10 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink to="meeting" className="c-navlink p-2 rounded-md my-1">
+          <NavLink
+            to="meeting"
+            className="c-navlink p-2 rounded-md my-1 relative"
+          >
             <HiUserGroup size={25} id="right2" />
             <Tooltip
               anchorId="right2"
@@ -35,9 +42,15 @@ const SideBar = () => {
               place="right"
               variant="dark"
             />
+            {meeting && (
+              <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
+            )}
           </NavLink>
 
-          <NavLink to="calendar" className="c-navlink p-2 rounded-md my-1">
+          <NavLink
+            to="calendar"
+            className="c-navlink p-2 rounded-md my-1 relative"
+          >
             <FaCalendarAlt size={25} id="right3" />
             <Tooltip
               anchorId="right3"
@@ -45,9 +58,15 @@ const SideBar = () => {
               place="right"
               variant="dark"
             />
+            {calendar && (
+              <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
+            )}
           </NavLink>
 
-          <NavLink to="notification" className="c-navlink p-2 rounded-md my-1">
+          <NavLink
+            to="notification"
+            className="c-navlink p-2 rounded-md my-1 relative"
+          >
             <IoNotifications size={25} id="right1" />
             <Tooltip
               anchorId="right1"
@@ -55,17 +74,10 @@ const SideBar = () => {
               place="right"
               variant="dark"
             />
+            {notification && (
+              <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
+            )}
           </NavLink>
-
-          {/* <NavLink to="claimit" className="c-navlink p-2 rounded-md my-1">
-            <BsDatabase size={25} id="right4" />
-            <Tooltip
-              anchorId="right4"
-              content="ClaimIT"
-              place="right"
-              variant="dark"
-            />
-          </NavLink> */}
         </div>
       </div>
       <Classic className="mb-2" />
