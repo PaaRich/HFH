@@ -29,8 +29,8 @@ const Layout = () => {
         {/* sidebar */}
         <div
           ref={SidebarRef}
-          className={`c-sidebar md:w-[5%] ${
-            open ? "left-0" : "-left-[5%]"
+          className={`c-sidebar md:w-[6%] ${
+            open ? "left-0" : "-left-[6%]"
           } duration-300  fixed z-50 top-0 bg-[#000000f1]`}
         >
           <SideBar />
@@ -47,7 +47,7 @@ const Layout = () => {
         {/* outlet */}
         <div
           className={`${
-            open ? "md:w-[95%]" : "md:w-full"
+            open ? "md:w-[94%]" : "md:w-full"
           } duration-300 fixed right-0 top-0 z-10`}
         >
           <Outlet />
