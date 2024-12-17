@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/WHO_logo-removebg-preview.png";
 import { IoNotifications, IoHomeSharp } from "react-icons/io5";
-import { HiUserGroup } from "react-icons/hi";
+//import { HiUserGroup } from "react-icons/hi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import { Classic } from "@theme-toggles/react";
@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { Context } from "../Context/Context";
 
 const SideBar = () => {
-  const { meeting, calendar, notification } = useContext(Context);
+  const { schedule, event } = useContext(Context);
 
   return (
     <div className="md:flex flex-col justify-between items-center h-dvh">
@@ -22,7 +22,7 @@ const SideBar = () => {
 
         <div className="flex flex-col items-center w-full mx-auto py-2 text-blue-500">
           <NavLink to="/" className="c-navlink p-2 rounded-md my-1">
-            <IoHomeSharp size={25} id="right" />
+            <IoHomeSharp size={32} id="right" />
             <Tooltip
               anchorId="right"
               content="Home"
@@ -31,7 +31,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
             to="meeting"
             className="c-navlink p-2 rounded-md my-1 relative"
           >
@@ -45,36 +45,36 @@ const SideBar = () => {
             {meeting && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
-          </NavLink>
+          </NavLink> */}
 
           <NavLink
-            to="calendar"
+            to="schedule"
             className="c-navlink p-2 rounded-md my-1 relative"
           >
-            <FaCalendarAlt size={25} id="right3" />
+            <FaCalendarAlt size={32} id="right3" />
             <Tooltip
               anchorId="right3"
-              content="Calendar"
+              content="Schedules"
               place="right"
               variant="dark"
             />
-            {calendar && (
+            {schedule && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>
 
           <NavLink
-            to="notification"
+            to="events"
             className="c-navlink p-2 rounded-md my-1 relative"
           >
-            <IoNotifications size={25} id="right1" />
+            <IoNotifications size={32} id="right1" />
             <Tooltip
               anchorId="right1"
-              content="Notifications"
+              content="Events"
               place="right"
               variant="dark"
             />
-            {notification && (
+            {event && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>
