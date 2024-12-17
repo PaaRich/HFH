@@ -20,22 +20,3 @@
   background-size: cover;
   height: 100vh;
 }
-/* .c-second-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.355), rgba(0, 0, 0, 0.355)),
-    url("./assets/studentsimg_0.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-.c-third-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.355), rgba(0, 0, 0, 0.355)),
-    url("./assets/university_building.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-.c-navlink:hover:not(.active) {
-  color: rgb(22, 22, 241);
-} */
