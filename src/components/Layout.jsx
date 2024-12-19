@@ -24,7 +24,7 @@ const Layout = () => {
   }, [SidebarRef, setIsOpen]);
 
   return (
-    <main className="h-dvh">
+    <main className="h-dvh ">
       <div className="md:flex">
         {/* sidebar */}
         <div
