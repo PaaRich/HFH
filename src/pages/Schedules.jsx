@@ -6,6 +6,7 @@ import { FiPlus } from "react-icons/fi";
 
 const Schedule = () => {
   const { addEvent, setAddEvent } = useContext(Context);
+
   return (
     <div className="flex items-center justify-center w-full h-dvh relative">
       <MyCalendar />

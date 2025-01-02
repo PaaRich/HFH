@@ -1,6 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
 import Logo from "../assets/WHO_logo-removebg-preview.png";
-import { IoNotifications, IoHomeSharp } from "react-icons/io5";
+import { IoNotifications, IoHomeSharp, IoSchoolSharp } from "react-icons/io5";
+import { BsShieldLockFill } from "react-icons/bs";
 //import { HiUserGroup } from "react-icons/hi";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
@@ -9,7 +10,7 @@ import { useContext } from "react";
 import { Context } from "../Context/Context";
 
 const SideBar = () => {
-  const { schedule, event } = useContext(Context);
+  const { schedule, event, training, policy } = useContext(Context);
 
   return (
     <div className="md:flex flex-col justify-between items-center h-dvh">
@@ -31,6 +32,21 @@ const SideBar = () => {
             />
           </NavLink>
 
+          <NavLink
+            to="training"
+            className="c-navlink p-2 rounded-md my-1 relative"
+          >
+            <IoSchoolSharp size={32} id="right4" />
+            <Tooltip
+              anchorId="right4"
+              content="Training"
+              place="right"
+              variant="dark"
+            />
+            {training && (
+              <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
+            )}
+          </NavLink>
           {/* <NavLink
             to="meeting"
             className="c-navlink p-2 rounded-md my-1 relative"
@@ -75,6 +91,22 @@ const SideBar = () => {
               variant="dark"
             />
             {event && (
+              <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
+            )}
+          </NavLink>
+
+          <NavLink
+            to="policy"
+            className="c-navlink p-2 rounded-md my-1 relative"
+          >
+            <BsShieldLockFill size={32} id="right5" />
+            <Tooltip
+              anchorId="right5"
+              content="Terms&Conditions"
+              place="right"
+              variant="dark"
+            />
+            {policy && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>

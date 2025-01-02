@@ -13,7 +13,17 @@ const DnDCalendar = withDragAndDrop(Calendar);
 import CustomEventDetails from "./EventDetails";
 
 const MyCalendar = () => {
-  const { addEvent, myEventList, setPosition } = useContext(Context);
+  const { addEvent, myEventList, setEvents } = useContext(Context);
+
+  const today = new Date(); // Current date and time
+  const activeEvents = myEventList.filter(
+    (event) => new Date(event.end) > today
+  );
+
+  //USE THIS TO DISPLAY THE EVENT ALERT
+  // if (activeEvents > 0) {
+  //   setEvents(true);
+  // }
   const handleDropFromOutside = ({ start, end, allDay }) => {
     const newEvent = {
       title: "New External Event",
@@ -27,36 +37,10 @@ const MyCalendar = () => {
 
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  const handleEventClick = (event, e) => {
-    setSelectedEvent(event); // Set the selected event to show details
-
-    // Get the position of the clicked event
-    const eventRect = e.target.getBoundingClientRect();
-    const offsetTop = eventRect.top + window.scrollY; // Get the top position of the event
-    const offsetLeft = eventRect.left + window.scrollX; // Get the left position of the event
-    setPosition({
-      top: offsetTop + 40, // Add some offset to move the detail view below the event
-      left: offsetLeft + 30, // Add some offset to move the detail view to the right of the event
-    });
-  };
-
   const handleClose = () => {
     setSelectedEvent(null);
   };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (selectedEvent) {
-  //       handleClose();
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [selectedEvent]);
   return (
     <div
       className={`h-full w-full ${
@@ -67,7 +51,7 @@ const MyCalendar = () => {
         defaultView="month"
         views={["month", "week", "day", "agenda"]}
         localizer={localizer}
-        events={myEventList}
+        events={activeEvents}
         startAccessor="start"
         endAccessor="end"
         style={{ width: "100%" }}
@@ -76,7 +60,7 @@ const MyCalendar = () => {
         resizable={false}
         onDropFromOutside={handleDropFromOutside}
         popup
-        onSelectEvent={handleEventClick}
+        //onSelectEvent={handleEventClick}
       />
       {selectedEvent && (
         <CustomEventDetails event={selectedEvent} onClose={handleClose} />

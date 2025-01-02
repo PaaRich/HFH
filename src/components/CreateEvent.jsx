@@ -1,18 +1,11 @@
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../Context/Context";
 
 // eslint-disable-next-line react/prop-types
 const EventForm = ({ onSubmit }) => {
-  const { setAddEvent } = useContext(Context);
-
-  const [formData, setFormData] = useState({
-    title: "",
-    startDate: "",
-    startTime: "",
-    endDate: "",
-    endTime: "",
-    allDay: false,
-  });
+  const { setAddEvent, myEventList, setMyEventList } = useContext(Context);
+  // eslint-disable-next-line no-unused-vars
+  const [formData, setFormData] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -25,17 +18,17 @@ const EventForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.title || !formData.startDate || !formData.endDate) {
+    if (!myEventList.title || !myEventList.startDate || !myEventList.endDate) {
       alert("Please fill in all required fields.");
       return;
     }
 
-    const start = formData.allDay
-      ? new Date(formData.startDate)
-      : new Date(`${formData.startDate}T${formData.startTime}`);
-    const end = formData.allDay
-      ? new Date(formData.endDate)
-      : new Date(`${formData.endDate}T${formData.endTime}`);
+    const start = myEventList.allDay
+      ? new Date(myEventList.startDate)
+      : new Date(`${myEventList.startDate}T${myEventList.startTime}`);
+    const end = myEventList.allDay
+      ? new Date(myEventList.endDate)
+      : new Date(`${myEventList.endDate}T${myEventList.endTime}`);
 
     if (end < start) {
       alert("End date/time must be after the start date/time.");
@@ -43,18 +36,16 @@ const EventForm = ({ onSubmit }) => {
     }
 
     onSubmit({
-      title: formData.title,
+      title: myEventList.title,
       start,
       end,
-      allDay: formData.allDay,
+      allDay: myEventList.allDay,
     });
 
-    setFormData({
+    setMyEventList({
       title: "",
-      startDate: "",
-      startTime: "",
-      endDate: "",
-      endTime: "",
+      start: "",
+      end: "",
       allDay: false,
     });
   };
@@ -75,7 +66,7 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="text"
           name="title"
-          value={formData.title}
+          value={myEventList.title}
           onChange={handleChange}
           placeholder="Event Title"
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -90,14 +81,14 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="date"
           name="startDate"
-          value={formData.startDate}
+          value={myEventList.startDate}
           onChange={handleChange}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
       </div>
 
-      {!formData.allDay && (
+      {!myEventList.allDay && (
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Start Time
@@ -105,7 +96,7 @@ const EventForm = ({ onSubmit }) => {
           <input
             type="time"
             name="startTime"
-            value={formData.startTime}
+            value={myEventList.startTime}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -119,14 +110,14 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="date"
           name="endDate"
-          value={formData.endDate}
+          value={myEventList.endDate}
           onChange={handleChange}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
         />
       </div>
 
-      {!formData.allDay && (
+      {!myEventList.allDay && (
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             End Time
@@ -134,7 +125,7 @@ const EventForm = ({ onSubmit }) => {
           <input
             type="time"
             name="endTime"
-            value={formData.endTime}
+            value={myEventList.endTime}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -145,7 +136,7 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="checkbox"
           name="allDay"
-          checked={formData.allDay}
+          checked={myEventList.allDay}
           onChange={handleChange}
           className="mr-2 leading-tight"
         />
