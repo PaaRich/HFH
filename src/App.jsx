@@ -6,6 +6,7 @@ import Schedule from "./pages/Schedules";
 import Training from "./pages/Training";
 import Policy from "./pages/Policy";
 import Post from "./components/Post";
+import VideoPage from "./pages/VideoPage";
 //import Posts from "./pages/Posts";
 
 function App() {
@@ -14,10 +15,11 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="events" element={<Events />} />
-        <Route path="/events/post" element={<Post />} />
+        <Route path="events/*" element={<Post />} />
         {/* <Route path="meeting" element={<Meeting />} /> */}
         <Route path="schedule" element={<Schedule />} />
         <Route path="training" element={<Training />} />
+        <Route path="training/*" element={<VideoPage />} />
         <Route path="policy" element={<Policy />} />
       </Route>
     </Routes>

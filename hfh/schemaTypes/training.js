@@ -8,30 +8,37 @@ export default defineType({
   //icon: CalenderIcon,
   fields: [
     defineField({
+      name: 'id',
+      title: 'ID',
+      type: 'string',
+      initialValue: () => `id-${Math.random().toString(36).substr(2, 9)}`, // Auto-generated unique string
+      readOnly: true, // Makes it read-only in the Studio
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
     }),
     defineField({
-      name: 'video',
-      title: 'Video',
-      type: 'file',
-      options: {
-        accept: 'video',
-      },
-      //   fields: [
-      //     {name: 'videoFile', type: 'file', title: 'Video File'},
-      //     // { name: 'title', type: 'string', title: 'Title' },
-      //     {name: 'description', type: 'string', title: 'Description'},
-      //   ],
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: {type: 'author'},
     }),
     defineField({
-      name: 'rate',
-      title: 'Rate',
-      type: 'string',
+      name: 'videoFile',
+      title: 'Video File',
+      type: 'file',
       options: {
-        list: ['Good', 'Bad'],
-        layout: 'radio',
+        accept: 'video/*', // This restricts the accepted files to video formats
+      },
+    }),
+    defineField({
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      type: 'image',
+      options: {
+        hotspot: true,
       },
     }),
     defineField({

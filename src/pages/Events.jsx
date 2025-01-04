@@ -1,6 +1,6 @@
 import { useContext, useRef, useState, useEffect } from "react";
 import { Context } from "../Context/Context";
-import { urlFor } from "../services/sanityUtil";
+//import { urlFor } from "../services/sanityUtil";
 import useIntersectionObserver from "../services/useIntersectionObserver";
 import client from "../client";
 import Card from "../components/Card";
@@ -40,23 +40,26 @@ const Events = () => {
 
   return (
     <div className="w-full" ref={eventRef}>
-      <div className="lg:max-w-[90%] mx-auto">
-        <Card
-          source=""
-          title="System updates"
-          description="There would be update this week"
-        />
+      <div className="lg:max-w-[60%] mx-auto">
         {post?.map((post, index) => (
           <div key={index}>
-            <h2>{post.title}</h2>
+            <Card
+              data={post}
+              slug={post.slug.current}
+              source={post.author.name.toLowerCase()}
+              title={post.title}
+              postedDate={post.publishedAt}
+            >
+              <PortableText value={post.body} />
+            </Card>
+            {/* <h2>{post.title}</h2>
             <img
               className="w-10"
               src={urlFor(post.author.image).url()}
               alt={post.author.name}
             />
             <p>{post.author.name}</p>
-            <p>{post.publishedAt}</p>
-            <PortableText value={post.body} />
+            <p>{}</p> */}
           </div>
         ))}
       </div>
