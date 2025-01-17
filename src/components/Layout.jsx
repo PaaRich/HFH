@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useEffect,useRef} from "react";
 import SideBar from "./SideBar";
 //import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
@@ -7,28 +7,28 @@ import { AiOutlineCaretRight } from "react-icons/ai";
 
 const Layout = () => {
   const { open, setIsOpen } = useContext(Context);
-  // const SidebarRef = useRef(null);
+  const SidebarRef = useRef(null);
 
-  // useEffect(() => {
-  //   const handleOutsideClick = (event) => {
-  //     if (!SidebarRef.current.contains(event.target)) {
-  //       setIsOpen(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!SidebarRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
 
-  //   document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleOutsideClick);
-  //   };
-  // }, [SidebarRef, setIsOpen]);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [SidebarRef, setIsOpen]);
 
   return (
     <main className="h-dvh ">
       <div className="md:flex">
         {/* sidebar */}
         <div
-          // ref={SidebarRef}
+          ref={SidebarRef}
           className={`c-sidebar md:w-[6%] ${
             open ? "left-0" : "-left-[6%]"
           } duration-300  fixed z-50 top-0 bg-[#000000f1]`}
