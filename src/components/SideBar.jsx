@@ -22,94 +22,89 @@ const SideBar = () => {
         </div>
 
         <div className="flex flex-col items-center w-full mx-auto py-2 text-blue-500">
-          <NavLink to="/" className="c-navlink p-2 rounded-md my-1">
-            <IoHomeSharp size={32} id="right" />
-            <Tooltip
-              anchorId="right"
-              content="Home"
-              place="right"
-              variant="dark"
-            />
+          <NavLink to="/" className="c-navlink p-2 rounded-md my-1" id="right">
+            <IoHomeSharp size={32} />
           </NavLink>
+          <Tooltip
+            className="text-2xl tracking-widest font-semibold z-50"
+            anchorId="right"
+            content="Home"
+            place="right"
+            variant="dark"
+          />
 
           <NavLink
             to="training"
             className="c-navlink p-2 rounded-md my-1 relative"
+            id="right4"
           >
-            <IoSchoolSharp size={32} id="right4" />
-            <Tooltip
-              anchorId="right4"
-              content="Training"
-              place="right"
-              variant="dark"
-            />
+            <IoSchoolSharp size={32} />
+
             {training && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>
-          {/* <NavLink
-            to="meeting"
-            className="c-navlink p-2 rounded-md my-1 relative"
-          >
-            <HiUserGroup size={25} id="right2" />
-            <Tooltip
-              anchorId="right2"
-              content="Meeting"
-              place="right"
-              variant="dark"
-            />
-            {meeting && (
-              <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
-            )}
-          </NavLink> */}
-
+          <Tooltip
+            className="text-2xl tracking-widest font-semibold z-50"
+            anchorId="right4"
+            content="Training"
+            place="right"
+            variant="dark"
+          />
           <NavLink
             to="schedule"
             className="c-navlink p-2 rounded-md my-1 relative"
+            id="right3"
           >
-            <FaCalendarAlt size={32} id="right3" />
-            <Tooltip
-              anchorId="right3"
-              content="Schedules"
-              place="right"
-              variant="dark"
-            />
+            <FaCalendarAlt size={32} />
             {schedule && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>
+          <Tooltip
+            className="text-2xl tracking-widest font-semibold z-50"
+            anchorId="right3"
+            content="Schedules"
+            place="right"
+            variant="dark"
+          />
 
           <NavLink
             to="events"
             className="c-navlink p-2 rounded-md my-1 relative"
+            id="right1"
           >
-            <IoNotifications size={32} id="right1" />
-            <Tooltip
-              anchorId="right1"
-              content="Events"
-              place="right"
-              variant="dark"
-            />
+            <IoNotifications size={32} />
+
             {event && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>
+          <Tooltip
+            className="text-2xl tracking-widest font-semibold z-50"
+            anchorId="right1"
+            content="Events"
+            place="right"
+            variant="dark"
+          />
 
           <NavLink
             to="policy"
             className="c-navlink p-2 rounded-md my-1 relative"
+            id="right5"
           >
-            <BsShieldLockFill size={32} id="right5" />
-            <Tooltip
-              anchorId="right5"
-              content="Terms&Conditions"
-              place="right"
-              variant="dark"
-            />
+            <BsShieldLockFill size={32} />
             {policy && (
               <span className="bg-red-500 absolute top-2 right-1 rounded-full w-3 h-3"></span>
             )}
           </NavLink>
+          <Tooltip
+            className="text-2xl tracking-widest font-semibold z-50"
+            anchorId="right5"
+            content="Terms & Conditions"
+            place="right"
+            variant="dark"
+          />
         </div>
       </div>
       <Classic className="mb-2" />

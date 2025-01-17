@@ -21,6 +21,10 @@ function App() {
         <Route path="training" element={<Training />} />
         <Route path="training/*" element={<VideoPage />} />
         <Route path="policy" element={<Policy />} />
+        {/* <Route
+          path="*"
+          element={<h1 className="text-3xl font-bold">Error Handling</h1>}
+        /> */}
       </Route>
     </Routes>
   );
