@@ -5,6 +5,8 @@ import useIntersectionObserver from "../services/useIntersectionObserver";
 import client from "../client";
 import Card from "../components/Card";
 import { PortableText } from "@portabletext/react";
+import img from "./../assets/HolyFamily.jpg"
+import MyLoader from "../components/ContentLoader"
 
 const Events = () => {
   const [post, setPost] = useState(null);
@@ -39,29 +41,46 @@ const Events = () => {
   isOnView && setEvent(false);
 
   return (
-    <div className="w-full" ref={eventRef}>
-      <div className="lg:max-w-[60%] mx-auto">
-        {post?.map((post, index) => (
-          <div key={index}>
-            <Card
-              data={post}
-              slug={post.slug.current}
-              source={post.author.name.toLowerCase()}
-              title={post.title}
-              postedDate={post.publishedAt}
-            >
-              <PortableText value={post.body} />
-            </Card>
-            {/* <h2>{post.title}</h2>
-            <img
-              className="w-10"
-              src={urlFor(post.author.image).url()}
-              alt={post.author.name}
-            />
-            <p>{post.author.name}</p>
-            <p>{}</p> */}
-          </div>
-        ))}
+    <div className="w-full flex gap-x-10 relative" ref={eventRef}>
+      <div className="lg:max-w-[58%] overflow-y-auto mx-10">
+        {!post ? (
+          <MyLoader />
+        ) : post.length === 0 ? (
+          <p>No posts available</p>
+        ) : (
+          post.map((post, index) => (
+            <div key={index}>
+              <Card
+                data={post}
+                slug={post.slug.current}
+                source={post.author.name.toLowerCase()}
+                title={post.title}
+                postedDate={post.publishedAt}
+              >
+                <PortableText value={post.body} />
+              </Card>
+            </div>
+          ))
+        )}
+      </div>
+      <div className=" h-dvh w-[40%] bg-[#f5f5f5d5] my-10 rounded-lg">
+        <div className="w-[90%] mx-auto sticky top-0 pt-4">
+          <h1 className="text-2xl font-semibold pb-4 text-orange-300">
+            Holy Family Hospital,Berekum
+          </h1>
+          <img src={img} alt="img" />
+          <p className=" text-lg py-4 ">
+            <abbr title="Holy Family Hospital" className="font-semibold">
+              HFH
+            </abbr>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem enim
+            consequatur corporis cumque fuga. Nihil earum suscipit explicabo
+            repellat vero corporis. Quisquam non laboriosam asperiores, amet
+            recusandae voluptatum obcaecati omnis incidunt sit aspernatur facere
+            accusamus neque, labore ipsam blanditiis modi dicta tempore nesciunt
+            autem! Explicabo recusandae sapiente aperiam repellat voluptate!
+          </p>
+        </div>
       </div>
     </div>
   );
