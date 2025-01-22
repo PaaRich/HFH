@@ -1,13 +1,35 @@
-import useIntersectionObserver from "../services/useIntersectionObserver";
-import { useContext, useRef } from "react";
-import { Context } from "../Context/Context";
+import { useEffect, useState } from "react";
+import client from "../client";
 
 const Policy = () => {
-  const policyRef = useRef(null);
-  const { setPolicy } = useContext(Context);
-  const isOnView = useIntersectionObserver(policyRef, { threshold: 0.5 });
-  isOnView && setPolicy(false);
-  return <div ref={policyRef}>Policy</div>;
+  const [policy, setPolicy] = useState([]);
+
+  useEffect(() => {
+    const query2 = `*[_type == "policy"] {
+  title,
+  slug,
+  body,
+  publishedAt
+}`;
+
+    // Fetch data using GROQ
+    client
+      .fetch(query2)
+      .then((data) => {
+        setPolicy(data);
+        console.log(data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+
+  return <div>
+    <div className="flex w-[90%] mx-auto h-dvh">
+      <div className="w-[30%] bg-orange-200">Nav</div>
+      <div className="w-[70%] bg-green-200 px-5">body</div>
+    </div>
+    
+  </div>;
 };
 
 export default Policy;

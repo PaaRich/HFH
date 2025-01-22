@@ -83,7 +83,7 @@ const SideBar = () => {
           <Tooltip
             className="text-2xl tracking-widest font-semibold z-50"
             anchorId="right1"
-            content="Events"
+            content="Posts"
             place="right"
             variant="dark"
           />

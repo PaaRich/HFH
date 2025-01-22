@@ -48,7 +48,7 @@ const MyCalendar = () => {
       }`}
     >
       <DnDCalendar
-        defaultView="month"
+        defaultView="agenda"
         views={["month", "week", "day", "agenda"]}
         localizer={localizer}
         events={activeEvents}

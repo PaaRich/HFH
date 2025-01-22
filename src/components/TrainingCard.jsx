@@ -15,7 +15,7 @@ const VideoCard = ({
   return (
     <Link
       to={path}
-      className="max-w-[341px] flex flex-col bg-white hover:shadow-lg rounded-lg border-2 duration-300"
+      className="max-w-[341px] flex flex-col bg-white hover:scale-105 shadow-lg rounded-lg border-2 duration-300"
       state={data1}
     >
       <div className="w-[340px] h-[192px]">

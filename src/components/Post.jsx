@@ -18,10 +18,10 @@ const Post = () => {
         <FaArrowLeft size={25} />
       </div>
 
-      <div className="w-[60%] mx-auto">
+      <div className="w-[60%] mx-auto ">
         {/* head */}
         <div className="mb-10">
-          <h1 className="text-5xl font-bold mb-5">{data.title}</h1>
+          <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
           {/* source */}
 
           <div className="flex items-end gap-x-4">
@@ -44,13 +44,11 @@ const Post = () => {
           </div>
         </div>
         {/* body */}
-        <div className="text-2xl font-roboto tracking-wide ">
+        <div className="text-xl font-roboto tracking-wide ">
+          <img className="w-fit object-cover aspect-auto mb-10" src={data.mainImage.asset.url} alt="image" />
           <PortableText value={data.body} />
         </div>
       </div>
-      {/* <p>{data.publishedAt}</p>
-      <p>{data.slug.current}</p>
-      <p>{data.title}</p> */}
     </div>
   );
 };

@@ -20,6 +20,7 @@ const VideoPage = () => {
         <video controls height="100%" width="100%">
           {/* <source src={videoData.asset} type="video/mp4" /> */}
           <source src={video} type="video/mp4" />
+          <track src="../assets/subtitles.vtt" kind="subtitles" srcLang="en" label="English" default></track>
         </video>
         <div className="flex items-center gap-x-2 mt-2">
           <IoBookmarksOutline size={25} />

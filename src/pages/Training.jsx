@@ -1,3 +1,4 @@
+
 import VideoCard from "../components/TrainingCard";
 import client from "../client";
 import { useState, useEffect } from "react";
@@ -50,19 +51,27 @@ const Training = () => {
 
   return (
     <div className="lg:max-w-[90%] mx-auto py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
-      {!training?(<Loader/>):(training.length==0)?(<h1>No item</h1>):(training?.map((train, index) => (
-        <div key={index} className="mx-auto">
-          <VideoCard
-            path={train._id}
-            thumbnail={train.thumbnail.asset.url}
-            title={train.title}
-            author={train.author.name}
-            publishedAt={train.PublishedAt}
-            authorImg={train.author.image}
-            data1={train}
-          />
+      {!training ? (
+        <div className="mx-aut0">
+          <Loader />
         </div>
-      )))}
+      ) : training.length == 0 ? (
+        <h1>No item</h1>
+      ) : (
+        training?.map((train, index) => (
+          <div key={index} className="mx-auto">
+            <VideoCard
+              path={train._id}
+              thumbnail={train.thumbnail.asset.url}
+              title={train.title}
+              author={train.author.name}
+              publishedAt={train.PublishedAt}
+              authorImg={train.author.image}
+              data1={train}
+            />
+          </div>
+        ))
+      )}
     </div>
   );
 };

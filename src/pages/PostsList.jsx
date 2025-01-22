@@ -3,9 +3,9 @@ import { Context } from "../Context/Context";
 //import { urlFor } from "../services/sanityUtil";
 import useIntersectionObserver from "../services/useIntersectionObserver";
 import client from "../client";
-import Card from "../components/Card";
-import { PortableText } from "@portabletext/react";
-import img from "./../assets/HolyFamily.jpg"
+import Card from "../components/PostCard";
+// import { PortableText } from "@portabletext/react";
+//import img from "./../assets/HolyFamily.jpg"
 import MyLoader from "../components/ContentLoader"
 
 const Events = () => {
@@ -16,6 +16,13 @@ const Events = () => {
   title,
   slug,
   body,
+  desc,
+  mainImage{
+    asset->{
+      _id,
+      url
+    }
+  },
   author-> {
     name,
     image
@@ -40,9 +47,11 @@ const Events = () => {
   const isOnView = useIntersectionObserver(eventRef, { threshold: 0.5 });
   isOnView && setEvent(false);
 
+  
+
   return (
-    <div className="w-full flex gap-x-10 relative" ref={eventRef}>
-      <div className="lg:max-w-[58%] overflow-y-auto mx-10">
+    <div className="w-full flex gap-x-10 " ref={eventRef}>
+      <div className="lg:min-w-[60%] overflow-y-auto mx-auto">
         {!post ? (
           <MyLoader />
         ) : post.length === 0 ? (
@@ -56,15 +65,20 @@ const Events = () => {
                 source={post.author.name.toLowerCase()}
                 title={post.title}
                 postedDate={post.publishedAt}
-              >
-                <PortableText value={post.body} />
-              </Card>
+                desc={post.desc}
+              />
+                {/* <p className="text-xl font-semibold">{ post.desc}</p> */}
+                {/* <PortableText value={post.body} /> */}
+                {/* <PortableText value={getFirstTenWords(post.body)} /> */}
+              
             </div>
           ))
         )}
       </div>
-      <div className=" h-dvh w-[40%] bg-[#f5f5f5d5] my-10 rounded-lg">
-        <div className="w-[90%] mx-auto sticky top-0 pt-4">
+
+      {/* aside */}
+      {/* <div className=" h-dvh w-[35%] bg-[#f5f5f5d5] mt-5 rounded-lg">
+        <div className="w-[90%] mx-auto sticky top-0 h-fit">
           <h1 className="text-2xl font-semibold pb-4 text-orange-300">
             Holy Family Hospital,Berekum
           </h1>
@@ -81,7 +95,7 @@ const Events = () => {
             autem! Explicabo recusandae sapiente aperiam repellat voluptate!
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
