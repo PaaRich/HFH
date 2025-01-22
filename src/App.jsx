@@ -1,7 +1,7 @@
 import Layout from "./components/Layout";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import Events from "./pages/Events";
+import Events from "./pages/PostsList";
 import Schedule from "./pages/Schedules";
 import Training from "./pages/Training";
 import Policy from "./pages/Policy";
