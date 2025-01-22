@@ -5,6 +5,12 @@ export default defineType({
   title: 'Post',
   type: 'document',
   fields: [
+     defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: {type: 'author'},
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -19,11 +25,16 @@ export default defineType({
         maxLength: 96,
       },
     }),
-    defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
+     defineField({
+        name: "desc",
+        title: "description",
+        type:'string'
+      }
+    ),
+      defineField({
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
     }),
     defineField({
       name: 'mainImage',
@@ -34,21 +45,10 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    }),
-    defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
-    }),
-    defineField({
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent',
-    }),
+    })
   ],
 
   preview: {
