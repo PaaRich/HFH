@@ -87,14 +87,13 @@ function AutoComplete() {
             onSelect={handleOnSelect}
             onFocus={handleOnFocus}
             autoFocus
-                      formatResult={formatResult}
-                      fuseOptions={{ keys: ["title"] }}
-                      resultStringKeyName="title"
-                      styling={styles}
-                      placeholder='Search for Post...'
-                      //showItemsOnFocus:true
-                      //showNoResultsText="Text to display"
-                    
+            formatResult={formatResult}
+            fuseOptions={{ keys: ["title"] }}
+            resultStringKeyName="title"
+            styling={styles}
+            placeholder='Search for Post...'
+            //showItemsOnFocus:true
+            //showNoResultsText="Text to display"        
           />
         </div>
       </header>
