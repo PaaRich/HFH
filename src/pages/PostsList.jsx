@@ -1,16 +1,20 @@
-import { useContext, useRef, useState, useEffect } from "react";
-import { Context } from "../Context/Context";
 //import { urlFor } from "../services/sanityUtil";
-import useIntersectionObserver from "../services/useIntersectionObserver";
 import client from "../client";
 import Card from "../components/PostCard";
+import { useState,useEffect } from "react";
 // import { PortableText } from "@portabletext/react";
 //import img from "./../assets/HolyFamily.jpg"
 import MyLoader from "../components/ContentLoader";
 import AutoComplete from "../components/PostSearch"
+import ErrorMessage from "../components/ErrorMessage";
+import { useNavigate } from "react-router-dom";
 
 const Events = () => {
   const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  const navigate =useNavigate()
 
   useEffect(() => {
     const query2 = `*[_type == "post"] {
@@ -32,36 +36,49 @@ const Events = () => {
 }`;
 
     // Fetch data using GROQ
-    client
-      .fetch(query2)
-      .then((data) => {
-        setPost(data);
-        console.log(data);
-      })
-      .catch((error) => console.error(error));
-  }, []);
-
-  const eventRef = useRef(null);
-
-  const { setEvent } = useContext(Context);
-
-  const isOnView = useIntersectionObserver(eventRef, { threshold: 0.5 });
-  isOnView && setEvent(false);
+      // Function to fetch data
+      const fetchData = async () => {
+        try {
+          const response = await client.fetch(query2);
+          console.log(response)
+          // if (!response) {
+          //   throw new Error('Network response was not ok');
+          // }
+          // const result = await response.json();
+          console.log(response)
+          setPost(response);
+        } catch (err) {
+          setError(err);
+        } finally {
+          setLoading(false);
+        }
+    }
+    fetchData();
+  }, [])
+  
+  if (loading) {
+    return (<div className="lg:max-w-[90%] mx-auto mt-24 py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
+      <div className="mx-auto"><MyLoader /></div>
+    </div>)
+  }
+  if (error) {
+    console.log(error)
+     return (<div className="lg:max-w-[90%] mx-auto mt-24 py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
+       <div className="mx-auto"><ErrorMessage message="Something went wrong" onRetry={()=>navigate("/") } /></div>
+    </div>)
+  }
+    
 
   
 
   return (
-    <div className="w-full flex gap-x-10 " ref={eventRef}>
+    <div className="w-full flex gap-x-10 ">
       <div className="fixed top-0 w-full bg-white shadow-lg py-4">
         <div className="w-[60%] mx-auto"> <AutoComplete /></div>
       </div>
      
       <div className="lg:min-w-[60%] overflow-y-auto mx-auto mt-24">
-        {!post ? (
-          <MyLoader />
-        ) : post.length === 0 ? (
-          <p>No posts available</p>
-          ) : (
+        {
           post.map((post, index) => (
             <div key={index}>
               <Card
@@ -78,7 +95,7 @@ const Events = () => {
               
             </div>
           ))
-        )}
+        }
       </div>
 
       {/* aside */}
