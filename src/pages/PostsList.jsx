@@ -6,7 +6,8 @@ import client from "../client";
 import Card from "../components/PostCard";
 // import { PortableText } from "@portabletext/react";
 //import img from "./../assets/HolyFamily.jpg"
-import MyLoader from "../components/ContentLoader"
+import MyLoader from "../components/ContentLoader";
+import AutoComplete from "../components/PostSearch"
 
 const Events = () => {
   const [post, setPost] = useState(null);
@@ -51,12 +52,16 @@ const Events = () => {
 
   return (
     <div className="w-full flex gap-x-10 " ref={eventRef}>
-      <div className="lg:min-w-[60%] overflow-y-auto mx-auto">
+      <div className="fixed top-0 w-full bg-white shadow-lg py-4">
+        <div className="w-[60%] mx-auto"> <AutoComplete /></div>
+      </div>
+     
+      <div className="lg:min-w-[60%] overflow-y-auto mx-auto mt-24">
         {!post ? (
           <MyLoader />
         ) : post.length === 0 ? (
           <p>No posts available</p>
-        ) : (
+          ) : (
           post.map((post, index) => (
             <div key={index}>
               <Card

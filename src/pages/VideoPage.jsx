@@ -4,8 +4,8 @@ import video from "../assets/React Native Tutorial - 1 - Introduction.mp4";
 import { IoBookmarksOutline } from "react-icons/io5";
 
 const VideoPage = () => {
-  const location1 = useLocation();
-  const videoData = location1.state;
+  const data1 = useLocation();
+  const videoData = data1.state;
   const navigate = useNavigate();
   return (
     <div className=" py-10 relative">
