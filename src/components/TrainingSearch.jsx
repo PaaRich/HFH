@@ -79,7 +79,7 @@ function AutoComplete() {
   return (
     <div className="App">
       <header className="App-header">
-        <div style={{ width: 400 }}>
+        <div style={{ width: 700 }}>
           <ReactSearchAutocomplete
             items={items}
             onSearch={handleOnSearch}

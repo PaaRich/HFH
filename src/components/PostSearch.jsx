@@ -1,33 +1,37 @@
+import { useContext,useRef } from 'react';
+import { Context } from '../Context/Context';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 //import { useState } from 'react';
 
 
 function AutoComplete() {
-
+  
+  const { post, setPost } = useContext(Context);
+  const searchRef = useRef();
     //const [items,setItems]=useState()
   // note: the id field is mandatory
-  const items = [
-    {
-      id: 0,
-      title: 'Cobol'
-    },
-    {
-      id: 1,
-      title: 'JavaScript'
-    },
-    {
-      id: 2,
-      title: 'Basic'
-    },
-    {
-      id: 3,
-      title: 'PHP'
-    },
-    {
-      id: 4,
-      title: 'Java'
-    }
-    ]
+  // const items = [
+  //   {
+  //     id: 0,
+  //     title: 'Cobol'
+  //   },
+  //   {
+  //     id: 1,
+  //     title: 'JavaScript'
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Basic'
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'PHP'
+  //   },
+  //   {
+  //     id: 4,
+  //     title: 'Java'
+  //   }
+  //   ]
     
     const styles = {
     width: "600px",
@@ -50,6 +54,7 @@ function AutoComplete() {
   const handleOnSearch = (string, results) => {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
+    setPost(results)
     console.log(string, results)
   }
 
@@ -59,7 +64,7 @@ function AutoComplete() {
   }
 
   const handleOnSelect = (item) => {
-    // the item selected
+    // setPost(item.filter((item)=>{item.title==searchRef.target.value}))
     console.log(item)
   }
 
@@ -71,7 +76,7 @@ function AutoComplete() {
     return (
       <>
         {/* <span style={{ display: 'none', textAlign: 'left' }}>id: {item.id}</span> */}
-        <span style={{ display: 'block', textAlign: 'left' }}>title: {item.title}</span>
+        <span style={{ display: 'block', textAlign: 'left',cursor:"pointer",padding:"10px 0"}}>{item.title}</span>
       </>
     )
   }
@@ -79,9 +84,10 @@ function AutoComplete() {
   return (
     <div className="App">
       <header className="App-header">
-        <div style={{ width: 400 }}>
+        <div style={{ width: 700 }}>
           <ReactSearchAutocomplete
-            items={items}
+            ref={searchRef}
+            items={post}
             onSearch={handleOnSearch}
             onHover={handleOnHover}
             onSelect={handleOnSelect}

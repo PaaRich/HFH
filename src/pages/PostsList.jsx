@@ -1,7 +1,8 @@
 //import { urlFor } from "../services/sanityUtil";
 import client from "../client";
 import Card from "../components/PostCard";
-import { useState,useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Context } from "../Context/Context";
 // import { PortableText } from "@portabletext/react";
 //import img from "./../assets/HolyFamily.jpg"
 import MyLoader from "../components/ContentLoader";
@@ -10,7 +11,7 @@ import ErrorMessage from "../components/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 
 const Events = () => {
-  const [post, setPost] = useState(null);
+  const { post, setPost } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
@@ -54,6 +55,7 @@ const Events = () => {
         }
     }
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   if (loading) {
@@ -62,7 +64,6 @@ const Events = () => {
     </div>)
   }
   if (error) {
-    console.log(error)
      return (<div className="lg:max-w-[90%] mx-auto mt-24 py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
        <div className="mx-auto"><ErrorMessage message="Something went wrong" onRetry={()=>navigate("/") } /></div>
     </div>)

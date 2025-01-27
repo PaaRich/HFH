@@ -3,14 +3,8 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const AppContext = ({ children }) => {
+  const [post, setPost] = useState(null);
   const [open, setIsOpen] = useState(false);
-  const [policy, setPolicy] = useState(false);
-  // const [meeting, setMeeting] = useState(true);
-  // eslint-disable-next-line no-unused-vars
-  const [error, setError] = useState(null);
-  const [schedule, setSchedule] = useState(false);
-  const [training, setTraining] = useState(false);
-  const [event, setEvent] = useState(false);
   const [addEvent, setAddEvent] = useState(false);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [myEventList, setMyEventList] = useState([
@@ -61,16 +55,10 @@ const AppContext = ({ children }) => {
   return (
     <Context.Provider
       value={{
-        policy,
-        setPolicy,
-        training,
-        setTraining,
+        post,
+        setPost,
         open,
         setIsOpen,
-        schedule,
-        setSchedule,
-        event,
-        setEvent,
         addEvent,
         setAddEvent,
         myEventList,
