@@ -24,3 +24,24 @@
   background-size: cover;
   height: 100vh;
 }
+
+.policy_links ul{
+  width: 90%;
+  margin: auto;
+}
+.policy_links ul li{
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  cursor: pointer;
+  font-size: large;
+}
+.policy_links ul li a:hover{
+  color: rgba(0, 0, 255, 0.476);
+}
+.policy_links ul li a{
+  margin-left: 10px;
+}
+.policy_links ul li a.active{
+  color: red;
+}
