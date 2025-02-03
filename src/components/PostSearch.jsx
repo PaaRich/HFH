@@ -1,4 +1,4 @@
-import { useContext,useRef } from 'react';
+import { useContext } from 'react';
 import { Context } from '../Context/Context';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 //import { useState } from 'react';
@@ -7,7 +7,7 @@ import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 function AutoComplete() {
   
   const { post, setPost } = useContext(Context);
-  const searchRef = useRef();
+  
     //const [items,setItems]=useState()
   // note: the id field is mandatory
   // const items = [
@@ -33,8 +33,7 @@ function AutoComplete() {
   //   }
   //   ]
     
-    const styles = {
-    width: "600px",
+  const styles = {
      height: "44px",
      border: "1px solid #dfe1e5",
      borderRadius: "24px",
@@ -55,22 +54,21 @@ function AutoComplete() {
     // onSearch will have as the first callback parameter
     // the string searched and for the second the results.
     setPost(results)
-    console.log(string, results)
   }
 
-  const handleOnHover = (result) => {
-    // the item hovered
-    console.log(result)
-  }
+  // const handleOnHover = (result) => {
+  //   // the item hovered
+  //   console.log(result)
+  // }
 
-  const handleOnSelect = (item) => {
-    // setPost(item.filter((item)=>{item.title==searchRef.target.value}))
-    console.log(item)
-  }
+  // const handleOnSelect = (item) => {
+  //   // setPost(item.filter((item)=>{item.title==searchRef.target.value}))
+  //   console.log(item)
+  // }
 
-  const handleOnFocus = () => {
-    console.log('Focused')
-  }
+  // const handleOnFocus = () => {
+  //   console.log('Focused')
+  // }
 
   const formatResult = (item) => {
     return (
@@ -86,12 +84,11 @@ function AutoComplete() {
       <header className="App-header">
         <div style={{ width: 700 }}>
           <ReactSearchAutocomplete
-            ref={searchRef}
             items={post}
             onSearch={handleOnSearch}
-            onHover={handleOnHover}
-            onSelect={handleOnSelect}
-            onFocus={handleOnFocus}
+            // onHover={handleOnHover}
+            // onSelect={handleOnSelect}
+            // onFocus={handleOnFocus}
             autoFocus
             formatResult={formatResult}
             fuseOptions={{ keys: ["title"] }}
