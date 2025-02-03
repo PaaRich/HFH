@@ -2,7 +2,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import moment from "moment";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "../Context/Context";
 //import EventDetails from "./EventDetails";
 
@@ -10,7 +10,7 @@ import { Context } from "../Context/Context";
 // to the correct localizer.
 const localizer = momentLocalizer(moment); // or globalizeLocalizer
 const DnDCalendar = withDragAndDrop(Calendar);
-import CustomEventDetails from "./EventDetails";
+// import CustomEventDetails from "./EventDetails";
 
 const MyCalendar = () => {
   const { addEvent, myEventList, setEvents } = useContext(Context);
@@ -35,12 +35,6 @@ const MyCalendar = () => {
     setEvents((prev) => [...prev, newEvent]);
   };
 
-  const [selectedEvent, setSelectedEvent] = useState(null);
-
-  const handleClose = () => {
-    setSelectedEvent(null);
-  };
-
   return (
     <div
       className={`h-full w-full ${
@@ -48,7 +42,7 @@ const MyCalendar = () => {
       }`}
     >
       <DnDCalendar
-        defaultView="agenda"
+        defaultView="month"
         views={["month", "week", "day", "agenda"]}
         localizer={localizer}
         events={activeEvents}
@@ -62,9 +56,6 @@ const MyCalendar = () => {
         popup
         //onSelectEvent={handleEventClick}
       />
-      {selectedEvent && (
-        <CustomEventDetails event={selectedEvent} onClose={handleClose} />
-      )}
     </div>
   );
 };
