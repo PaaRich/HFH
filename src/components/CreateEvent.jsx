@@ -3,29 +3,33 @@ import { Context } from "../Context/Context";
 
 // eslint-disable-next-line react/prop-types
 const EventForm = ({ onSubmit }) => {
-  const { setAddEvent, myEventList, setMyEventList } = useContext(Context);
+
+  const { setDisplayAddEvent, myEventList, setMyEventList } = useContext(Context);
   // eslint-disable-next-line no-unused-vars
-  const [formData, setFormData] = useState(null);
+  const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!myEventList.title || !myEventList.startDate || !myEventList.endDate) {
+    if (!formData.title || !formData.start || !formData.end) {
       alert("Please fill in all required fields.");
       return;
     }
 
-    const start = myEventList.allDay
-      ? new Date(myEventList.startDate)
-      : new Date(`${myEventList.startDate}T${myEventList.startTime}`);
+    const start = formData.allDay
+      ? new Date(formData.startDate)
+      : new Date(`${formData.startDate}T${formData.startTime}`);
+    
     const end = myEventList.allDay
       ? new Date(myEventList.endDate)
       : new Date(`${myEventList.endDate}T${myEventList.endTime}`);
@@ -66,7 +70,7 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="text"
           name="title"
-          value={myEventList.title}
+          value={formData.title}
           onChange={handleChange}
           placeholder="Event Title"
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -81,7 +85,7 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="date"
           name="startDate"
-          value={myEventList.startDate}
+          value={formData.startDate}
           onChange={handleChange}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
@@ -96,7 +100,7 @@ const EventForm = ({ onSubmit }) => {
           <input
             type="time"
             name="startTime"
-            value={myEventList.startTime}
+            value={formData.startTime}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -110,7 +114,7 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="date"
           name="endDate"
-          value={myEventList.endDate}
+          value={formData.endDate}
           onChange={handleChange}
           className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           required
@@ -125,7 +129,7 @@ const EventForm = ({ onSubmit }) => {
           <input
             type="time"
             name="endTime"
-            value={myEventList.endTime}
+            value={formData.endTime}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -136,7 +140,7 @@ const EventForm = ({ onSubmit }) => {
         <input
           type="checkbox"
           name="allDay"
-          checked={myEventList.allDay}
+          checked={formData.allDay}
           onChange={handleChange}
           className="mr-2 leading-tight"
         />
@@ -152,7 +156,7 @@ const EventForm = ({ onSubmit }) => {
         </button>
         <button
           className="w-1/2 bg-red-500 text-white py-2 px-4 rounded-mg font-semibold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          onClick={() => setAddEvent(false)}
+          onClick={() => setDisplayAddEvent(false)}
         >
           Cancel
         </button>
