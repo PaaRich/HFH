@@ -26,7 +26,7 @@
 }
 
 .policy_links ul{
-  width: 90%;
+  width: 85%;
   margin: auto;
 }
 .policy_links ul li{
@@ -34,14 +34,25 @@
   align-items: center;
   margin: 30px 0;
   cursor: pointer;
-  font-size: large;
+font-size: large;
 }
 .policy_links ul li a:hover{
   color: rgba(0, 0, 255, 0.476);
 }
 .policy_links ul li a{
   margin-left: 10px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .policy_links ul li a.active{
   color: red;
+}
+
+/* for the search input */
+.App-header a{
+  border: 1px solid red;
+}
+.App-header .wrapper>div{
+  min-height: 46px;
 }
