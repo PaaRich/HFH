@@ -10,30 +10,13 @@ import { Context } from "../Context/Context";
 // to the correct localizer.
 const localizer = momentLocalizer(moment); // or globalizeLocalizer
 const DnDCalendar = withDragAndDrop(Calendar);
-// import CustomEventDetails from "./EventDetails";
 
 const MyCalendar = () => {
-  const { addEvent, myEventList, setEvents } = useContext(Context);
+  const { addEvent, myEventList } = useContext(Context);
 
-  const today = new Date(); // Current date and time
-  const activeEvents = myEventList.filter(
-    (event) => new Date(event.end) > today
-  );
+  
 
-  //USE THIS TO DISPLAY THE EVENT ALERT
-  // if (activeEvents > 0) {
-  //   setEvents(true);
-  // }
-  const handleDropFromOutside = ({ start, end, allDay }) => {
-    const newEvent = {
-      title: "New External Event",
-      start,
-      end,
-      allDay,
-    };
-    // eslint-disable-next-line no-undef
-    setEvents((prev) => [...prev, newEvent]);
-  };
+  
 
   return (
     <div
@@ -45,16 +28,14 @@ const MyCalendar = () => {
         defaultView="month"
         views={["month", "week", "day", "agenda"]}
         localizer={localizer}
-        events={activeEvents}
+        events={myEventList}
         startAccessor="start"
         endAccessor="end"
         style={{ width: "100%" }}
         // eslint-disable-next-line no-unused-vars
         draggableAccessor={(events) => true}
         resizable={false}
-        onDropFromOutside={handleDropFromOutside}
         popup
-        //onSelectEvent={handleEventClick}
       />
     </div>
   );
