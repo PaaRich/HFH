@@ -6,7 +6,7 @@ import { Context } from "../Context/Context";
 // import { PortableText } from "@portabletext/react";
 //import img from "./../assets/HolyFamily.jpg"
 import MyLoader from "../components/ContentLoader";
-import AutoComplete from "../components/PostSearch"
+import AutoComplete from "../components/SearchAutocomplete"
 import ErrorMessage from "../components/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 
@@ -41,12 +41,10 @@ const Events = () => {
       const fetchData = async () => {
         try {
           const response = await client.fetch(query2);
-          console.log(response)
           // if (!response) {
           //   throw new Error('Network response was not ok');
           // }
           // const result = await response.json();
-          console.log(response)
           setPost(response);
         } catch (err) {
           setError(err);
@@ -75,7 +73,7 @@ const Events = () => {
   return (
     <div className="w-full flex gap-x-10 ">
       <div className="fixed top-0 w-full bg-white shadow-lg py-4">
-        <div className="w-[60%] mx-auto"> <AutoComplete /></div>
+        <div className="w-[60%] mx-auto"> <AutoComplete item={post} setItem={setPost} /></div>
       </div>
      
       <div className="lg:min-w-[60%] overflow-y-auto mx-auto mt-24">

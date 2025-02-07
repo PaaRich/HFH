@@ -3,7 +3,7 @@ import VideoCard from "../components/TrainingCard";
 import client from "../client";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader"
-import AutoComplete from "../components/TrainingSearch"
+import AutoComplete from "../components/SearchAutocomplete"
 import ErrorMessage from "../components/ErrorMessage";
 //import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -81,7 +81,7 @@ const Training = () => {
     <div>
       {/* autocomplete */}
       <div className="fixed top-0 w-full bg-white shadow-lg py-4">
-        <div className="w-[60%] mx-auto"> <AutoComplete /></div>
+        <div className="w-[60%] mx-auto"> <AutoComplete item={training} setItem={setTraining} /></div>
       </div>
       {/* training cards */}
       <div className="lg:max-w-[90%] mx-auto mt-24 py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
