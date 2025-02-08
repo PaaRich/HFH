@@ -7,7 +7,7 @@ const Card = ({ slug, source, title, desc, postedDate, data }) => {
   return (
     <Link
       to={slug}
-      className="bg-white border-y p-8  block hover:bg-gray-50 duration-100"
+      className="bg-white border-b p-8  block hover:bg-gray-50 duration-100"
       state={data}
     >
       <div className=" text-green-700 font-medium mb-2 text-lg">

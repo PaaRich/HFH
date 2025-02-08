@@ -55,7 +55,7 @@ const Training = () => {
     <div>
       
       {/* autocomplete */}
-      <div className="fixed top-0 w-full bg-white shadow-lg py-4">
+      <div className="fixed top-0 w-full bg-white shadow-md py-4">
         <div className="w-[60%] mx-auto"> <AutoComplete item={training} setItem={setTraining} /></div>
       </div>
 
