@@ -1,12 +1,16 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
-import video from "../assets/React Native Tutorial - 1 - Introduction.mp4";
+  import video from "../assets/React Native Tutorial - 1 - Introduction.mp4";
 import { IoBookmarksOutline } from "react-icons/io5";
 
 const VideoPage = () => {
+
   const data1 = useLocation();
   const videoData = data1.state;
+
+
   const navigate = useNavigate();
+  
   return (
     <div className=" py-10 relative">
       <div
@@ -18,7 +22,7 @@ const VideoPage = () => {
 
       <div className="w-[60%] mx-auto">
         <video controls height="100%" width="100%">
-          {/* <source src={videoData.asset} type="video/mp4" /> */}
+          {/* <source src={videoData.thumbnail.asset.url } type="video/mp4" /> */}
           <source src={video} type="video/mp4" />
           <track src="../assets/subtitles.vtt" kind="subtitles" srcLang="en" label="English" default></track>
         </video>
