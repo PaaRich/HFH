@@ -1,49 +1,36 @@
 import client from "../../client";
-import { useContext,useState } from "react";
-import {Context} from "../../Context/Context"
+import { useEffect, useState } from "react";
 
-export const useFetch = () => {
+export const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const { post, setPost } = useContext(Context)
-  const [loading,setLoading]=useState()
-  const [error,setError]=useState()
+  useEffect(() => {
+    if (!url) return; // Prevent fetching if no URL is provided
+
+    let isMounted = true; // Prevent setting state if component unmounts
 
     const fetchData = async () => {
+      setLoading(true);
+      setError(null);
 
-        const postFetch = `*[_type == "post"] {
-        title,
-        slug,
-        body,
-        desc,
-        mainImage{
-            asset->{
-            _id,
-            url
-            }
-        },
-        author-> {
-            name,
-            image
-        },
-        publishedAt
-        }`;
-        try {
-          const response = await client.fetch(postFetch);
-          // if (!response) {
-          //   throw new Error('Network response was not ok');
-          // }
-          // const result = await response.json();
-          setPost(response);
-        } catch (err) {
-          setError(err);
-        } finally {
-          setLoading(false);
-        }
-  }
-  
+      try {
+        const response = await client.fetch(url);
+        if (isMounted) setData(response);
+      } catch (err) {
+        if (isMounted) setError(err);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
 
+    fetchData();
 
-  return {fetchData,loading,error,post,setPost};
-}
+    return () => {
+      isMounted = false; // Cleanup function to prevent memory leaks
+    };
+  }, [url]); 
 
-export default useFetch
+  return { data, setData, error, loading };
+};
