@@ -122,3 +122,68 @@ const Events = () => {
 };
 
 export default Events;
+
+
+// USE CASE
+//import { urlFor } from "../services/sanityUtil";
+// import Card from "../components/PostCard";
+// import { useEffect} from "react";
+// // import { PortableText } from "@portabletext/react";
+// //import img from "./../assets/HolyFamily.jpg"
+// import MyLoader from "../components/ContentLoader";
+// import AutoComplete from "../components/SearchAutocomplete"
+// import ErrorMessage from "../components/ErrorMessage";
+// import { useNavigate } from "react-router-dom";
+// import useFetch from "../services/fetches/useFetch";
+
+// const Events = () => {
+//   const {fetchData,post,error,setPost,loading}=useFetch()
+//   const navigate =useNavigate()
+
+//   useEffect(() => {
+//     fetchData()
+//   // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [])
+  
+//   if (loading) {
+//     return (<div className="lg:max-w-[90%] mx-auto mt-24 py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
+//       <div className="mx-auto"><MyLoader /></div>
+//     </div>)
+//   }
+//   if (error) {
+//      return (<div className="lg:max-w-[90%] mx-auto mt-24 py-10 grid gap-y-10 grid-cols-[repeat(auto-fit,minmax(312px,1fr))]">
+//        <div className="mx-auto"><ErrorMessage message="Something went wrong" onRetry={()=>navigate("/") } /></div>
+//     </div>)
+//   }
+    
+
+  
+
+//   return (
+//     <div className="w-full flex gap-x-10 ">
+//       <div className="fixed top-0 w-full bg-white shadow-lg py-4">
+//         <div className="w-[60%] mx-auto"> <AutoComplete item={post} setItem={setPost} /></div>
+//       </div>
+     
+//       <div className="lg:min-w-[60%] overflow-y-auto mx-auto mt-24">
+//         {
+//           post.map((post, index) => (
+//             <div key={index}>
+//               <Card
+//                 data={post}
+//                 slug={post.slug.current}
+//                 source={post.author.name.toLowerCase()}
+//                 title={post.title}
+//                 postedDate={post.publishedAt}
+//                 desc={post.desc}
+//               />
+//             </div>
+//           ))
+//         }
+//       </div>
+
+//     </div>
+//   );
+// };
+
+// export default Events;
