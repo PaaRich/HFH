@@ -27,6 +27,8 @@ const MyCalendar = () => {
       <DnDCalendar
         defaultView="month"
         views={["month", "week", "day", "agenda"]}
+        // displays all
+        // views={["month", "week", "day", "agenda"]}
         localizer={localizer}
         events={myEventList}
         startAccessor="start"
