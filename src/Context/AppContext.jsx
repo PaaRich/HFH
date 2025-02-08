@@ -1,5 +1,5 @@
 import { Context } from "./Context";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import client from "../client"
 
 // eslint-disable-next-line react/prop-types
@@ -24,10 +24,6 @@ import client from "../client"
       const fetchEvent = async () => {
         try {
           const response = await client.fetch(event);
-          // if (!response) {
-          //   throw new Error('Network response was not ok');
-          // }
-          // const result = await response.json();
           setMyEventList(response);
         } catch (err) {
           console.log(err)
